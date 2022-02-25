@@ -1,0 +1,38 @@
+{
+ "properties": {
+  "displayName": "StorageAccount Blob Public Access Deny",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "StorageAccount Blob Public Access Deny created with Catapult",
+  "metadata": {
+   "category": "Storage",
+   "createdBy": "906e00ce-3687-49d1-ab43-b178ef3ca9df",
+   "createdOn": "2021-12-03T15:22:39.5973447Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+       "equals": "false"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/25a0fe74-b1cb-46ee-81f5-8cbb7b5ca144/providers/Microsoft.Authorization/policyDefinitions/c4cd5819-0684-4ee1-9b03-235bb11bbc2d",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "c4cd5819-0684-4ee1-9b03-235bb11bbc2d"
+}

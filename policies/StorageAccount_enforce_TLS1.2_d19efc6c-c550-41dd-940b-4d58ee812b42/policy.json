@@ -1,0 +1,38 @@
+{
+ "properties": {
+  "displayName": "StorageAccount enforce TLS1.2",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "StorageAccount enforce TLS1.2",
+  "metadata": {
+   "category": "Storage",
+   "createdBy": "906e00ce-3687-49d1-ab43-b178ef3ca9df",
+   "createdOn": "2021-12-03T15:05:47.2684199Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "not": {
+       "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+       "equals": "TLS1_2"
+      }
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/25a0fe74-b1cb-46ee-81f5-8cbb7b5ca144/providers/Microsoft.Authorization/policyDefinitions/d19efc6c-c550-41dd-940b-4d58ee812b42",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d19efc6c-c550-41dd-940b-4d58ee812b42"
+}
